@@ -14,4 +14,15 @@ class ToDo {
     this.isComplete = false,
     this.subtasks = const [],
   });
+
+  ToDo toggleComplete() {
+    return ToDo(
+      id: id,
+      title: title,
+      description: description,
+      dueDate: dueDate,
+      isComplete: !isComplete,
+      subtasks: subtasks,
+    );
+  }
 }
