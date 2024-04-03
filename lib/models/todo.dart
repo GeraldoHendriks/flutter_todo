@@ -25,4 +25,20 @@ class ToDo {
       subtasks: subtasks,
     );
   }
+
+  ToDo update({
+    String? title,
+    String? description,
+    DateTime? dueDate,
+    List<String>? subtasks,
+  }) {
+    return ToDo(
+      id: id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      dueDate: dueDate ?? this.dueDate,
+      isComplete: isComplete,
+      subtasks: subtasks ?? this.subtasks,
+    );
+  }
 }
