@@ -6,17 +6,21 @@ class TodoListItem extends StatelessWidget {
   const TodoListItem({
     super.key,
     required this.todo,
+    required this.onChanged,
   });
 
   final ToDo todo;
+  final void Function() onChanged;
 
   @override
   Widget build(BuildContext context) {
-    return CheckboxListTile(
+    return ListTile(
       title: Text(todo.title),
-      subtitle: Text(DateFormat('dd-MM-yyyy').format(todo.dueDate)),
-      value: todo.isComplete,
-      onChanged: (_) => todo.toggleComplete(),
+      subtitle: Text(DateFormat('HH:mm dd-MM').format(todo.dueDate)),
+      trailing: todo.isComplete
+          ? const Icon(Icons.check_box_outlined)
+          : const Icon(Icons.check_box_outline_blank),
+      onTap: onChanged,
     );
   }
 }
